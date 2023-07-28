@@ -41,9 +41,11 @@ def FC(x):
 
     femm.mi_saveas(r"C:\Users\davidhorvat\Desktop\test.fem")
 
-    result = problem.analyse()
+    print(problem.analyse())
 
-    return result
+    # print("rezultat :", result)
+    #
+    # return result
 
 
 

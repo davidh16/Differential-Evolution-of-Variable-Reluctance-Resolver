@@ -14,10 +14,10 @@ def generate_stator(problem):
     femm.mi_getmaterial('Air')
 
     #  dodavanje svojstava okolini
-    femm.mi_addblocklabel(math.sin(math.radians(problem.alS2 / 2 + problem.kutS / 2)) * (problem.rs1 + problem.rs2) / 2,
-                          math.cos(math.radians(problem.alS2 / 2 + problem.kutS / 2)) * (problem.rs1 + problem.rs2) / 2)
-    femm.mi_selectlabel(math.sin(math.radians(problem.alS2 / 2) + problem.kutS / 2) * (problem.rs1 + problem.rs2) / 2,
-                        math.cos(math.radians(problem.alS2 / 2) + problem.kutS / 2) * (problem.rs1 + problem.rs2) / 2)
+    femm.mi_addblocklabel(problem.rs2*math.sin(math.radians(0)),
+                          problem.rs2*math.cos(math.radians(0)) - 0.5)
+    femm.mi_selectlabel(problem.rs2*math.sin(math.radians(0)),
+                          problem.rs2*math.cos(math.radians(0)) - 0.5)
     femm.mi_setblockprop('Air', 1, 0, '<None>', 0, 0, 0)
     femm.mi_clearselected()
 

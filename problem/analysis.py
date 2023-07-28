@@ -1,6 +1,7 @@
 import femm
 import numpy as np
 
+
 def analyse(problem):
     femm.mi_selectcircle(0, 0, problem.rr1 + problem.DZ / 2, 4)
     femm.mi_setgroup(5)  # sva geometrija rotora
@@ -13,10 +14,8 @@ def analyse(problem):
     step_size = (7.5 / 360) * (1 / problem.rpm) * 60
     t = np.arange(0, duration * 60 / problem.rpm + step_size, step_size)
     time_index = 1
-    exception_flag = 0
 
     for ji in range(poz + 1):
-        exception_flag = 0
 
         problem.i = problem.i * np.sin(2 * np.pi * problem.f * t[time_index])
 
@@ -35,16 +34,15 @@ def analyse(problem):
 
         time_index += 1
 
-        CIRC = femm.mo_getcircuitproperties("excitation")
+        circ = femm.mo_getcircuitproperties("excitation")
 
-        flux_linkage = CIRC[2]
-        total_current = CIRC[0]
+        flux_linkage = circ[2]
+        total_current = circ[0]
 
-        L = np.real(flux_linkage)/np.real(total_current)
+        l = np.real(flux_linkage) / np.real(total_current)
+        REZ.append(np.real(l))
 
-        REZ.append(np.real(L))
-
-    AvL = sum(REZ) / len(REZ)
-
-    return 1 / AvL
-
+    avg_l = sum(REZ) / len(REZ)
+    result = 1/avg_l
+    print(result)
+    return result

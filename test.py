@@ -12,5 +12,5 @@ from problem.objective_function import FC
 
 
 # NAMOTI NISU NACRTANI
-x = [100, 20, 5, 30, 6, 3, 5, 60, 3]
+x = [48.26794572, 9.38732916, 8.66478219, 34.8259738, 6.0, 2.70873786, 10.50537742, 60.77789634, 5.0]
 FC(x)
