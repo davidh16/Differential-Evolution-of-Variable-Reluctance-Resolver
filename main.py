@@ -71,6 +71,6 @@ constraints = (constraint5, constraint2, constraint3, constraint4, constraint6)
 # bounds = [(33,180),(5,10),(5,20),(10,105),(3,12),(2,5),(2,168),(10,120),(2,6)]
 bounds = [[33, 180], [5, 10], [5, 20], [10, 105], [6, 6], [2, 5], [2, 168], [10, 120], [5, 5]]
 
-result = optimize.differential_evolution(FC, bounds, constraints=constraints)
+result = optimize.differential_evolution(FC, bounds, constraints=constraints, maxiter=4, popsize=2, disp=True, polish=False)
 
 print(result)
