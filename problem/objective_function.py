@@ -22,8 +22,6 @@ x = [
 
 def FC(x):
 
-    print("ITERATION")
-
     # starting the femm with predetermined configuration
     problem = Problem(x)
 
@@ -64,9 +62,11 @@ def FC(x):
 
         femm.mi_saveas(r"C:\Users\davidhorvat\Desktop\solutions\solution" + str(ji) + ".fem")
 
+        # za neke vektore koji se rijetko generiraju ne valja geometrija i nastane error, u slučaju kada dođe do errora, funckija vraća penalty value 100000
         try:
             femm.mi_analyze(1)
         except Exception:
+            print("error occuerd")
             return 100000
 
         femm.mi_loadsolution()

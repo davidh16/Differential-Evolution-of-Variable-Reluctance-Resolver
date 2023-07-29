@@ -3,7 +3,6 @@ import problem.geometry.parameters as parameters
 import problem.geometry.rotor as rotor
 import problem.geometry.stator as stator
 import problem.windings.windings as windings
-import problem.analysis as analysis
 
 
 class Problem:
@@ -52,6 +51,3 @@ class Problem:
 
     def generate_rotor(self):
         rotor.generate_rotor(self)
-
-    def analyse(self):
-        analysis.analyse(self)
