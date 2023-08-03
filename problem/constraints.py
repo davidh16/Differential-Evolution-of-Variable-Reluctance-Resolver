@@ -4,7 +4,9 @@ import numpy as np
 
 def define_constraints():
 
-    stator_poles_inequality_constraint = lambda x: x[3] - (360 / x[4])
+    broj_polova_statora = [3, 6, 9, 12]
+
+    stator_poles_inequality_constraint = lambda x: x[3] - (360 / broj_polova_statora[int(round(x[4]))]) - 15
 
     rotor_pole_angle_constraint = lambda x: x[8] - (360 / x[7])
 

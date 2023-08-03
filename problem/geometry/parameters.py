@@ -36,7 +36,11 @@ def init_stator_parameters(self, x):
     self.alS2 = ((2 * math.degrees(math.asin(math.sin(math.radians(self.alS1 / 2)) * (self.rs1) / (self.rs2))  )) / self.alS1) * self.alS1
 
     # Broj polova statora
-    self.Ps = x[4]
+
+    broj_polova_statora = [3,6,9,12]
+    index = int(round(x[4]))
+
+    self.Ps = broj_polova_statora[index]
     # Kut izmedju polova statora
     self.kutS = (360 - self.Ps * self.alS1) / self.Ps
 
@@ -47,7 +51,11 @@ def init_rotor_parameters(self, x):
     self.DZ = x[5]
 
     # Broj polova rotora
-    self.Pr = x[8]
+
+    broj_polova_rotora = [2, 3, 4, 5]
+    index = int(round(x[8]))
+
+    self.Pr = broj_polova_rotora[index]
 
     # Duljina pola rotora:
     self.Sr = x[6]

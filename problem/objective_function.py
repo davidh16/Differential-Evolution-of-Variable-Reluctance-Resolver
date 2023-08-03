@@ -50,7 +50,7 @@ def FC(x):
 
     for ji in range(poz + 1):
 
-        problem.i = problem.i * np.sin(2 * np.pi * problem.f * t[time_index])
+        problem.i = problem.i * np.sin(2 * np.pi * 5000 * t[time_index])
 
         femm.mi_setcurrent("excitation", problem.i)
 
@@ -78,8 +78,11 @@ def FC(x):
         flux_linkage = circ[2]
         total_current = circ[0]
 
-        l = np.real(flux_linkage) / np.real(total_current)
-        REZ.append(np.real(l))
+        if total_current != 0:
+            l = flux_linkage / total_current
+            REZ.append(l)
+        else:
+            REZ.append(0)
 
     avg_l = sum(REZ) / len(REZ)
     result = 1 / avg_l

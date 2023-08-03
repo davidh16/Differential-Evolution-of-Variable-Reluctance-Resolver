@@ -15,7 +15,7 @@ class Problem:
         # brzina vrtnje
         self.rpm = 1500
         # frekvencija u Hz
-        self.f = 5000
+        self.f = 0
         # struja u mA
         self.i = 8.3e-3
         # napon u V
