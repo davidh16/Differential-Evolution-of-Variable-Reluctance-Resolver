@@ -47,8 +47,8 @@ def generate_rotor(problem):
         femm.mi_mirror(0,1,0,-1)
 
         # dodavanje svojstava rotoru
-        femm.mi_addblocklabel((problem.rV + problem.rr2) / 2, 0)
-        femm.mi_selectlabel((problem.rV + problem.rr2) / 2, 0)
+        femm.mi_addblocklabel((problem.rV + 1), 0)
+        femm.mi_selectlabel((problem.rV + 1), 0)
         femm.mi_setblockprop('M-15 Steel', 1, 0, '<None>', 0, 0, 0)
         femm.mi_clearselected()
 
@@ -110,8 +110,8 @@ def generate_rotor(problem):
         femm.mi_copyrotate(0, 0, 360 / problem.Pr, problem.Pr - 1)
 
         # dodavanje svojstava rotoru
-        femm.mi_addblocklabel((problem.rV + problem.rr2) / 2, 0)
-        femm.mi_selectlabel((problem.rV + problem.rr2) / 2, 0)
+        femm.mi_addblocklabel((problem.rV + 1), 0)
+        femm.mi_selectlabel((problem.rV + 1), 0)
         femm.mi_setblockprop('M-15 Steel', 1, 0, '<None>', 0, 0, 0)
         femm.mi_clearselected()
 

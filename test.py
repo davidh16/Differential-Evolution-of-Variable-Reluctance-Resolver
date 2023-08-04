@@ -1,4 +1,6 @@
 from problem.objective_function import FC
+from problem.problem_base import Problem
+import femm
 
 """
 
@@ -12,18 +14,29 @@ U komentarima su zapisani primjeri vektora koji su stvarali probleme, no ti isti
 Usage : odrediti vektor x, otkomentirati liniju 30, pokrenuti test.py
 
 """
+x = [99.9631171, 7.07432642, 5.42466828, 31.35358989, 0.14694722, 2.11299388, 3.43070733, 119.47654249, -0.49148282]
 
-#x = [167.0292834, 7.38816166, 14.54937817, 38.53294057, 3.00000026, 4.26139388, 41.14000874, 38.41421015, 3.70752308]
+"""
 
-#x  = [100, 20, 5, 30, 6, 3, 5, 60, 3]
+[146.21466081, 7.39159116, 16.07664157, 12.82642157, 2.87297219, 2.29427683, 2.32183008, 34.15334476, 0.48284293]
 
-#x = [125.8212344, 8.17046908, 14.62579518, 27.59782459, 6.0, 4.12884229, 18.82740725, 23.43702363, 5.0]
+[87.09315335, 7.79408624, 14.82106205, 58.0580431, 1.07910747, 4.16963895, 5.52506552, 50.23474978, 1.62226178] - constraint
 
-#x = [126.42328681, 5.93482018, 6.5517732, 40.36821638, 6.00000000, 4.25860395, 5.89112131, 29.83084273, 5.00000000]
-# TypeError: '>=' not supported between instances of 'float' and 'NoneType'
+"""
 
-#x = [33.86857431, 5.59496457, 14.16791286, 28.47118468, 6.0, 3.03210196, 3.81487486, 34.00236909, 5.0]
-# namoti nisu nacrtani
+def FCTEST(X):
+    # starting the femm with predetermined configuration
+    problem = Problem(x)
 
+    # generiranje statora
+    problem.generate_stator()
 
-# FC(x)
+    # generiranje rotora
+    problem.generate_rotor()
+
+    # generiranje namota
+    problem.generate_windings()
+
+    femm.mi_saveas(r"C:\Users\davidhorvat\Desktop\test.fem")
+
+FCTEST(x)

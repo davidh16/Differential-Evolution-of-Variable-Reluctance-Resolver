@@ -67,8 +67,10 @@ def FC(x):
             femm.mi_analyze(1)
         except Exception:
             print("error occuerd")
+            print(x)
             return 100000
 
+        # femm.mi_analyze(1)
         femm.mi_loadsolution()
 
         time_index += 1
