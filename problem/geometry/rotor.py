@@ -43,7 +43,7 @@ def generate_rotor(problem):
                        arc_angle, 1)
 
         #selektiranje luka koji spaja polove i stvaranje kopije na drugoj strani (zrcaljenje)
-        femm.mi_selectarcsegment(-1, 0)
+        femm.mi_selectarcsegment(-problem.rr2/2, 0)
         femm.mi_mirror(0,1,0,-1)
 
         # dodavanje svojstava rotoru

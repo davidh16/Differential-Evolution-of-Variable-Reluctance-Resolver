@@ -11,16 +11,28 @@ Na taj način funkcija samo nacrta geometriju, a ne radi analizu te se onda mož
 Korištenjem ovog file-a sam debugirao sve probleme na koje sam naišao.
 U komentarima su zapisani primjeri vektora koji su stvarali probleme, no ti isti problemi su riješeni.
 
-Usage : odrediti vektor x, otkomentirati liniju 30, pokrenuti test.py
+
+vektor sa parametrima senzora
+x = [
+      vanjski_promjer_statora,
+      debljina_jarma_statora, 
+      duljina_pola_statora, 
+      kut_pola_statora, 
+      broj_polova_statora,
+      duljina_zracnog_raspora,
+      duljina_pola_rotora,
+      kut_pola_rotora,
+      broj_polova_rotora
+     ]
+
+     primjer : x = [100, 20, 5, 30, 6, 3, 5, 60, 3]
+"""
+
+x = [151.3014477, 9.70855312, 16.86670792, 100.45477843, -0.45203825, 2.63561373, 46.90315534, 17.79371032, -0.23766799]
 
 """
-x = [99.9631171, 7.07432642, 5.42466828, 31.35358989, 0.14694722, 2.11299388, 3.43070733, 119.47654249, -0.49148282]
 
-"""
-
-[146.21466081, 7.39159116, 16.07664157, 12.82642157, 2.87297219, 2.29427683, 2.32183008, 34.15334476, 0.48284293]
-
-[87.09315335, 7.79408624, 14.82106205, 58.0580431, 1.07910747, 4.16963895, 5.52506552, 50.23474978, 1.62226178] - constraint
+bounds : [(33, 180), (5, 10), (5, 20), (10, 105), (-0.5, 3.5), (2, 5), (2, 168), (10, 120), (-0.5, 3.5)]
 
 """
 

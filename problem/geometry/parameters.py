@@ -37,10 +37,9 @@ def init_stator_parameters(self, x):
 
     # Broj polova statora
 
-    broj_polova_statora = [3,6,9,12]
-    index = int(round(x[4]))
+    broj_polova_statora = [3, 6, 9, 12]
 
-    self.Ps = broj_polova_statora[index]
+    self.Ps = broj_polova_statora[round(x[4])]
     # Kut izmedju polova statora
     self.kutS = (360 - self.Ps * self.alS1) / self.Ps
 
@@ -53,9 +52,8 @@ def init_rotor_parameters(self, x):
     # Broj polova rotora
 
     broj_polova_rotora = [2, 3, 4, 5]
-    index = int(round(x[8]))
 
-    self.Pr = broj_polova_rotora[index]
+    self.Pr = broj_polova_rotora[round(x[8])]
 
     # Duljina pola rotora:
     self.Sr = x[6]
