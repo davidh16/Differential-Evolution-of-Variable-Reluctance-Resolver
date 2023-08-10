@@ -34,7 +34,7 @@ def FC(x):
     # generiranje namota
     problem.generate_windings()
 
-    femm.mi_saveas(r"C:\Users\davidhorvat\Desktop\test.fem")
+    # femm.mi_saveas(r"C:\Users\davidhorvat\Desktop\test.fem")
 
     femm.mi_selectcircle(0, 0, problem.rr1 + problem.DZ / 2, 4)
     femm.mi_setgroup(5)  # sva geometrija rotora
@@ -66,15 +66,15 @@ def FC(x):
         try:
             femm.mi_analyze(1)
         except Exception:
-            print("error occuerd")
-            print(x)
+            print("# analyze error occurred")
+            # print(x)
             return 100000
 
         try:
             femm.mi_loadsolution()
         except Exception:
-            print("error occuerd")
-            print(x)
+            print("# loading solution error occurred")
+            # print(x)
             return 100000
 
         time_index += 1
