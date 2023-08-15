@@ -9,7 +9,7 @@ Ovo je zahtjevalo puno debugiranja.
 Svrha ovog file-a je da se testira crtanje namota kako bi se utvrdilo optimalno pozicioniranje namota oko polova kao i same dimenzije namota.
 Također korištenjem file-a sam utvrdio najbolje pozicioniranje labela za namote i označavanje namota.
 
-Usage : u file-u windings.py zakomentirati u funkciji generate_windings zakomentirati sve osim test.test_windings(problem)
+Usage : u file-u windings.py u funkciji generate_windings zakomentirati sve osim test.test_windings(problem)
 
 """
 

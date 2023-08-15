@@ -25,24 +25,27 @@ def FC(x):
     # starting the femm with predetermined configuration
     problem = Problem(x)
 
-    # generiranje statora
+    # stator generation
     problem.generate_stator()
 
-    # generiranje rotora
+    # rotor generation
     problem.generate_rotor()
 
-    # generiranje namota
+    # windings generation
     problem.generate_windings()
 
-    # femm.mi_saveas(r"C:\Users\davidhorvat\Desktop\test.fem")
-
+    # grouping of the whole rotor geometry
     femm.mi_selectcircle(0, 0, problem.rr1 + problem.DZ / 2, 4)
-    femm.mi_setgroup(5)  # sva geometrija rotora
+    femm.mi_setgroup(5)
 
+    # matrix to store results in
     REZ = []
-    kz = 7.5  # kut zakreta rotora
+
+    # angle of rotation for each step
+    kz = 7.5
     poz = int(45 / kz)
 
+    # making of time vector
     duration = 1 / 8
     step_size = (7.5 / 360) * (1 / problem.rpm) * 60
     t = np.arange(0, duration * 60 / problem.rpm + step_size, step_size)
@@ -62,7 +65,6 @@ def FC(x):
 
         femm.mi_saveas(r"C:\Users\davidhorvat\Desktop\solutions\solution" + str(ji) + ".fem")
 
-        # za neke vektore koji se rijetko generiraju ne valja geometrija i nastane error, u slučaju kada dođe do errora, funckija vraća penalty value 100000
         try:
             femm.mi_analyze(1)
         except Exception:

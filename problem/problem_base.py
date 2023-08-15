@@ -12,15 +12,15 @@ class Problem:
 
         # po uzoru na 11BRW -300-M iz kataloga https://ecatalog.dynapar.com/downloads/HM_11_R11__DS_702922_1_.pdf
 
-        # brzina vrtnje
+        # rotational speed [rpm]
         self.rpm = 1500
-        # frekvencija u Hz
+        # frequency [Hz]
         self.f = 0
-        # struja u mA
+        # maximum current [mA]
         self.i = 8.3e-3
-        # napon u V
+        # voltage [V]
         self.v = 10
-        # aksijalna duljina u mm
+        # axial length [mm]
         self.axial_length = 15
 
         # opens femm, 1 is to hide main window
@@ -29,6 +29,7 @@ class Problem:
         # initializing a new document
         femm.newdocument(0)
 
+        # defining of parameters
         femm.mi_probdef(self.f, 'millimeters', 'planar', 1.e-8, self.axial_length, 30)
 
         # hides the floating Lua console window

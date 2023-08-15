@@ -7,13 +7,6 @@ def define_constraints():
     broj_polova_statora = [3, 6, 9, 12]
     broj_polova_rotora = [2, 3, 4, 5]
 
-    # o = lambda x: 2*math.pi*(x[0]-x[1]-x[2])
-    # max_arc_length = lambda x: 0 / broj_polova_statora[round((x[4]))]
-    # max_alpha = lambda x:max_arc_length /(x[0]-x[1]-x[2]) - 30
-
-    # alfa = ((2*math.pi*(x[0]-x[1]-x[2]) / broj_polova_statora[round((x[4]))])/(x[0]-x[1]-x[2]))
-    # 360/((2*math.pi*(x[0]-x[1]-x[2]) / broj_polova_statora[round((x[4]))])/(x[0]-x[1]-x[2]))
-
     stator_poles_angle_constraint = lambda x: x[3] - math.degrees(((2*math.pi*(x[0]-x[1]-x[2]) / broj_polova_statora[round((x[4]))])/(x[0]-x[1]-x[2]))) + abs(360/broj_polova_statora[round((x[4]))] - 1.3*math.degrees(((2*math.pi*(x[0]-x[1]-x[2]) / broj_polova_statora[round((x[4]))])/(x[0]-x[1]-x[2]))))
 
     rotor_pole_angle_constraint = lambda x: x[7] - (360 / broj_polova_rotora[round(x[8])])

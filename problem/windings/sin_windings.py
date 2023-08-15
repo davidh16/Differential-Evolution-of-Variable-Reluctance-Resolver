@@ -30,7 +30,7 @@ def generate_sin_windings(problem):
 
     femm.mi_clearselected()
 
-    # # # crtanje prvokutnika s lijeve strane pola
+    # crtanje prvokutnika s lijeve strane pola
     femm.mi_drawrectangle(
         problem.rs1 * math.sin(math.radians(problem.alS1 / 2)) + 1.5,
         problem.rs1 * math.cos(math.radians(problem.alS1 / 2)) - 2 * problem.Sp / 5,
