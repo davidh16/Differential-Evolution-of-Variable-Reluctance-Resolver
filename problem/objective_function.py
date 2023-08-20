@@ -9,8 +9,6 @@ x = [
       vanjski_promjer_statora,
       debljina_jarma_statora, 
       duljina_pola_statora, 
-      kut_pola_statora, 
-      broj_polova_statora,
       duljina_zracnog_raspora,
       duljina_pola_rotora,
       kut_pola_rotora,
@@ -33,6 +31,8 @@ def FC(x):
 
     # windings generation
     problem.generate_windings()
+
+    problem.def_materials()
 
     # grouping of the whole rotor geometry
     femm.mi_selectcircle(0, 0, problem.rr1 + problem.DZ / 2, 4)

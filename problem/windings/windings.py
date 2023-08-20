@@ -27,7 +27,7 @@ def generate_windings(problem):
     # dodjeljivanje svojstava kosinusnom namotu
     cos.generate_cos_windings(problem)
 
-    # test.test_windings(problem)
+    #test.test_windings(problem)
 
 
 

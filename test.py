@@ -15,8 +15,6 @@ x = [
       vanjski_promjer_statora,
       debljina_jarma_statora, 
       duljina_pola_statora, 
-      kut_pola_statora, 
-      broj_polova_statora,
       duljina_zracnog_raspora,
       duljina_pola_rotora,
       kut_pola_rotora,
@@ -26,11 +24,11 @@ x = [
      primjer : x = [100, 20, 5, 30, 6, 3, 5, 60, 3]
 """
 
-x = [100, 10, 15, 17, 2, 3, 5, 60, 3]
+x = [40, 10, 20, 3, 5, 3]
 
 """
 
-bounds : [(33, 180), (5, 10), (5, 20), (10, 105), (-0.5, 3.5), (2, 5), (2, 168), (10, 120), (-0.5, 3.5)]
+bounds : [(33, 180), (5, 10), (5, 20), (2, 5), (2, 168), (-0.5, 3.5)]
 
 """
 
@@ -46,6 +44,8 @@ def FCTEST(X):
 
     # windings generation
     problem.generate_windings()
+
+    problem.def_materials()
 
     femm.mi_saveas(r"C:\Users\davidhorvat\Desktop\test.fem")
 

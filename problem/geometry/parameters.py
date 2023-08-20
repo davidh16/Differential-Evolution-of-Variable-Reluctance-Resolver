@@ -6,15 +6,12 @@ x = [
       vanjski_promjer_statora,
       debljina_jarma_statora, 
       duljina_pola_statora, 
-      kut_pola_statora, 
-      broj_polova_statora,
       duljina_zracnog_raspora,
       duljina_pola_rotora,
-      kut_pola_rotora,
       broj_polova_rotora
      ]
 
-     primjer : x = [100, 20, 5, 30, 6, 3, 5, 60, 3]
+     primjer : x = [100, 20, 5, 30, 3]
 """
 
 def init_stator_parameters(self, x):
@@ -31,15 +28,19 @@ def init_stator_parameters(self, x):
     self.rs1 = self.Rv - self.Jt
     self.rs2 = self.rs1 - self.Sp
 
-    # Kut pola statora
-    self.alS1 = x[3]
-    self.alS2 = ((2 * math.degrees(math.asin(math.sin(math.radians(self.alS1 / 2)) * (self.rs1) / (self.rs2))  )) / self.alS1) * self.alS1
-
     # Broj polova statora
+    self.Ps = 12
 
-    broj_polova_statora = [3, 6, 9, 12]
+    o = 2 * math.pi * self.rs2
+    pal = o / 12
+    pa = (pal/2)*1.5/self.rs2
+    gore = pa*self.rs1
+    duljina_pola = (2*math.pi*self.rs1-self.Ps*gore)/self.Ps
+    kut_pola = math.degrees(duljina_pola/self.rs1)
 
-    self.Ps = broj_polova_statora[round(x[4])]
+    # Kut pola statora
+    self.alS1 = kut_pola
+
     # Kut izmedju polova statora
     self.kutS = (360 - self.Ps * self.alS1) / self.Ps
 
@@ -47,30 +48,26 @@ def init_stator_parameters(self, x):
 
 def init_rotor_parameters(self, x):
     # Debljina zracnog raspora:
-    self.DZ = x[5]
+    self.DZ = x[3]
 
     # Broj polova rotora
 
-    broj_polova_rotora = [2, 3, 4, 5]
+    broj_polova_rotora = [2, 3, 4, 5, 6]
 
-    self.Pr = broj_polova_rotora[round(x[8])]
-
-    # Duljina pola rotora:
-    self.Sr = x[6]
+    self.Pr = broj_polova_rotora[round(x[4])]
 
     # Promjeri rotora:
     self.rr1 = self.rs2 - self.DZ
-    self.rr2 = self.rr1 - self.Sr
+    self.rr2 = self.rr1 - 0.1*self.rr1
 
     # Kut pola rotora:
-    self.alR1 = x[7]
-    self.alR2 = 2 * math.degrees(math.asin(math.sin(math.radians(self.alR1 / 2)) * self.rr1 / self.rr2))
-    self.krN = self.alR2 / self.alR1
-    self.kr = self.krN
-    self.alR2 = self.kr * self.alR1
+    if self.Pr != 2:
+        self.alR1 = 360/self.Pr
+    else:
+        self.alR1 = 45
 
     # Kut izmedju polova rotora
-    self.alR3 = 360 / self.Pr - self.alR2
+    self.alR3 = 360 / self.Pr - self.alR1
 
     # polumjer osovine
     self.rV = self.rr2 * 1 / 3
