@@ -10,12 +10,10 @@ x = [
       debljina_jarma_statora, 
       duljina_pola_statora, 
       duljina_zracnog_raspora,
-      duljina_pola_rotora,
-      kut_pola_rotora,
       broj_polova_rotora
      ]
      
-     primjer : x = [100, 20, 5, 30, 6, 3, 5, 60, 3]
+     primjer : x = [100, 20, 15, 2, 3]
 """
 
 def FC(x):
