@@ -7,7 +7,6 @@ x = [
       debljina_jarma_statora, 
       duljina_pola_statora, 
       duljina_zracnog_raspora,
-      duljina_pola_rotora,
       broj_polova_rotora
      ]
 

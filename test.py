@@ -24,7 +24,7 @@ x = [
      primjer : x = [100, 20, 5, 30, 6, 3, 5, 60, 3]
 """
 
-x = [40, 10, 20, 3, 5, 3]
+x = [ 1.798e+02,  6.712e+00,  1.500e+01,  2.005e+00 , 4.319e+00]
 
 """
 
@@ -32,7 +32,7 @@ bounds : [(33, 180), (5, 10), (5, 20), (2, 5), (2, 168), (-0.5, 3.5)]
 
 """
 
-def FCTEST(X):
+def FCTEST(x):
     # starting the femm with predetermined configuration
     problem = Problem(x)
 
@@ -47,6 +47,6 @@ def FCTEST(X):
 
     problem.def_materials()
 
-    femm.mi_saveas(r"C:\Users\davidhorvat\Desktop\test.fem")
+    femm.mi_saveas(r"C:\Users\davidhorvat\Desktop\rez.fem")
 
 FCTEST(x)
